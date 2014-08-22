@@ -40,7 +40,8 @@ You SHOULD **lock down** the LDAP attribute which holds the unsalted hashes to l
  - **Password Dictionary:** [CrackStation Dictionary][9] (they also include all words found in Wikipedia!)
 
 #### Security Considerations
-Since user hashes and potentially passwords be stored in plaintext on the test machine, we disconnected it from the local network after the initial configuration and [sneakernetted][10] the sensitive data.
+Since user hashes and potentially passwords will be stored in plaintext on the test machine,
+we disconnected it from the local network after the initial configuration and [sneakernetted][10] the sensitive data.
 
 ----------
 ### Performance
@@ -61,7 +62,7 @@ You can modify the 'workload profile' setting in hashcat to be slightly more agg
 The dictionary attack is less efficient to run, but very effective in getting passwords.  It was able to process about 13 million hashes per second.  However it took only **7 minutes** to check over a billion known passwords against our hashes.  It was able to quickly find about **5%** of our passwords. About half **2% in total** of the dictionary derived passwords were 8 characters in length.
 
 #### Brute Force Attacks
-Belwo are the approximate time windows it took or would take to brute force these password configurations.
+Below are the approximate time windows it took or would take to brute force these password configurations.
 (Simple = Uppercase, Lowercase and Digits, Complex = all characters)
 
     7 Digit Simple   -   37 Minutes (yielded a handful of legacy user passwords and passwords set by admins)
@@ -72,7 +73,7 @@ Belwo are the approximate time windows it took or would take to brute force thes
     More complex     -   >10 years (not run -- software estimates here)
 
 ----------
-### Discussion Points
+### Discussion
 
 #### Meeting The Minimum
 At least 15% of our users set their passwords to **JUST** meet our minimum specification.  This is better than I had originally expected, but still included a large number of users including many 'engineer-types' who I had hoped would know better.

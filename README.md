@@ -58,10 +58,14 @@ You can modify the 'workload profile' setting in hashcat to be slightly more agg
 ----------
 ### Results
 
-#### Dictionary Attack
+#### Dictionary Attack Method
 The dictionary attack is less efficient to run, but very effective in getting passwords.  It was able to process about 13 million hashes per second.  However it took only **7 minutes** to check over a billion known passwords against our hashes.  It was able to quickly find about **5%** of our passwords. About half **2% in total** of the dictionary derived passwords were 8 characters in length.
 
-#### Brute Force Attacks
+#### Dictionary + Rule Based Method
+
+An even more effective technique is to use a heavy dictionary WITH a rule based iteration system.  Rules automatically test variations of dictionary words with digits, l33t speak substitutions and lots of other smarter rules based on reverse engineering actual common password databases.  Hashcat comes with a collections of rules you can apply.  In my testing, 'InsidePro-PasswordsPro', 'best64' and 'dive' produced the best results.
+
+#### Brute Force Attacks 
 Below are the approximate time windows it took or would take to brute force these password configurations.
 (Simple = Uppercase, Lowercase and Digits, Complex = all characters)
 
@@ -124,6 +128,10 @@ We should check new passwords against the dictionary lists we have.  This will p
 
 #### Dictionary Attack
     ./oclHashcat64.bin --hash-type=100 --outfile=dictionary.out hashlist crackstation.dict
+    
+    
+#### Dictionary Attack with Rules
+    ./oclHashcat64.bin --hash-type=100 --outfile=dictionary.out --rules-file=rules/best64.rule --rules-file=rules/InsidePro-PasswordsPro.rule hashlist crackstation.dict
 
 #### Brute Force Attacks
     # 7 Character Simple (upper, lower, digit)
